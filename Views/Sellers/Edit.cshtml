@@ -1,0 +1,223 @@
+﻿@model OnlineHouseRentManagementSystem.Models.seller
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<link href="~/Content/stylesheets/Edit/SellerCustomerEdit.css" rel="stylesheet" />
+@if (ViewData["saved"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        Saved..!!
+    </div>
+}
+<div class="container text-capitalize main">
+
+    @using (Html.BeginForm("Edit", "Sellers", FormMethod.Post, new { enctype = "multipart/form-data",onsubmit = "return check()" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.seller_id)
+        <div class="container header text-center">
+            <h3>Profile</h3>
+            <div class="forprofileimg">
+                @{
+                    var imgSrc = "/Content/images/no image.jpg";
+                }
+                @{if (Model.seller_photo != null)
+                    {
+                        var base64 = Convert.ToBase64String(Model.seller_photo);
+                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                }
+                <img id="ImgPreview" src="@imgSrc" alt="No image" width=170 height=170 />
+            </div>
+            <label id="filelabel">
+                Change Image
+                <input type="file" name="seller_photo" onchange="ImgPre(this)"/>
+            </label>
+        </div>
+        <div class="container col-11" id="contents">
+            <div class="row row-cols-2">
+                <div class="col"><label>Seller Name</label></div>
+                <div class="col"><label>Seller Email</label></div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control req" required id="seller_name" name="seller_name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly value="@Model.seller_name">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="email" class="form-control req" required id="seller_email" name="seller_email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly value="@Model.seller_email">
+                    </div>
+                </div>
+                <div class="col"><label>Seller State</label></div>
+                <div class="col"><label>Seller Phone</label></div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control req" required id="seller_state" name="seller_state" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@Model.seller_state">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="number" class="form-control req" required id="seller_phone" name="seller_phone" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@Model.seller_phone">
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+        }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+        function check() {
+            var phone = $("#seller_phone").val().toString();
+            if (phone.length != 10) {
+                alert("Enter Valid Phone number");
+                $("#seller_phone").css("border-color", "red");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        $(document).ready(function () {
+            $(".main").click(function () {
+                $(".alert").hide();
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+    <h2>Edit</h2>
+    @if(ViewData["saved"] != null)
+    {
+    <div class="alert alert-success" role="alert">
+        Saved..!!
+    </div>
+    }
+
+    @using (Html.BeginForm("Edit", "Sellers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>seller</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.seller_id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.seller_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.seller_name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.seller_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.HiddenFor(model => model.seller_email, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.seller_phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.seller_phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.seller_phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Seller Profile : </label>
+                <div class="col-md-10">
+                    <input type="file" name="seller_photo" onchange="ImgPre(this)" />
+                </div>
+            </div>
+            <div class="form-group">
+            <div class="col-md-10">
+                   @{
+                       var imgSrc = "";
+                   }
+                   @{if (Model.seller_photo != null)
+                           {
+                               var base64 = Convert.ToBase64String(Model.seller_photo);
+                               imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                   }
+                <img id="ImgPreview" src="@imgSrc" alt="No image" width="200" height="200" />
+            </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.seller_state, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.seller_state, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.seller_state, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+            function ImgPre(input) {
+                if (input.files[0]) {
+                    var uploadimg = new FileReader();
+                    uploadimg.onload = function (displayimg) {
+                        $("#ImgPreview").attr('src', displayimg.target.result);
+                    }
+                    uploadimg.readAsDataURL(input.files[0]);
+                }
+            }</script>
+    }
+
+*@

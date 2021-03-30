@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Content/images/favicon.png" type="image/png" sizes="32x32">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .nav-link{
+            font-weight:bold;
+        }
+        .nav-link:hover{
+            color: white !important;
+            text-decoration : underline;
+            text-decoration-color:white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    @if (Session["user_role"] != null && (string)Session["user_role"] == "seller")
+                    {
+                        <a class="nav-link" id="shome" href="@Url.Action("Index","Sellers")">Home</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" id="home" href="@Url.Action("index","home")">Home</a>
+                    }
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="about" href="@Url.Action("about","home")">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact" href="@Url.Action("contact","home")">Contact</a>
+                </li>
+                @if (Session["name"] != null)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Session["name"]
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="@Url.Action("Logout","Home")">Log out</a>
+                            @if ((string)Session["user_role"] == "customer")
+                            {
+                                @Html.ActionLink("Profile", "Edit", "Customers", new { id = Session["customer_id"] }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("View Booked Status", "Index", "Bookings", null, new { @class = "dropdown-item" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Profile", "Edit", "Sellers", new { id = Session["seller_id"] }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("View Properties", "Index", "Prop", null, new { @class = "dropdown-item" })
+                            }
+                            @Html.ActionLink("Top Seller", "TopSeller", "Prop", null, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("SignupLogin","Home")" id="signlog">Signup/Login</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <div class="bodycontent">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

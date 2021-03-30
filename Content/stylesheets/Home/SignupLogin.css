@@ -1,0 +1,68 @@
+﻿.content {
+    border: 1px solid rgb(24, 152, 237);
+    margin-top: 100px;
+    padding : 0px !important;
+    border-radius : 4px;
+    background-color:white;
+}
+.c{
+    padding:0px;
+}
+.b {
+    border-radius: 0px;
+    border: none;
+}
+.b:focus,.b:hover {
+    background-color: white;
+    color: rgb(7, 156, 242);
+}
+.header {
+    background-color: rgb(7, 156, 242);
+    width : 100%;
+    padding : 20px;
+}
+.header h1{
+    text-align : center;
+    color:white;
+}
+.login .lr{
+    display : flex;
+    justify-content:center;
+    margin : 16px;
+}
+.login .lb{
+    margin : 2px;    
+}
+.login #forgot-password{
+    border : none;
+}
+.login .ch{
+    overflow : hidden;
+}
+.lin{
+    border : none;
+    border-bottom : 2px solid rgb(24, 152, 237);
+    border-radius : 0px;
+}
+
+.seller .lr {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+.customer .lr {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+.seller, .customer{
+    display: none;
+}
+.click {
+    background-color: white;
+    color: rgb(7, 156, 242);
+}
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../images/Homebg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}

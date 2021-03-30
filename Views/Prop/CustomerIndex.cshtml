@@ -1,0 +1,349 @@
+﻿@model IEnumerable<OnlineHouseRentManagementSystem.Models.property>
+
+@{
+    ViewBag.Title = "CustomerIndex";
+}
+<link href="~/Content/stylesheets/Property/CustomerIndex.css" rel="stylesheet" />
+
+@if (ViewData["placefound"] != null)
+{
+    <div class="alert alert-danger col-sm-6 text-center m-auto" role="alert">
+        No Match Found..!
+    </div>
+    ViewData.Clear();
+}
+<div class="container main col-lg-7 text-capitalize">
+    @using (Html.BeginForm("CustomerIndex", "Prop"))
+    {
+        <div class="container header">
+            <div class="row col-sm-8">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="City/Locality" name="locality" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    }
+    <!--For loop-->
+    @{
+    int idc = 0;
+    }
+    @foreach (var item in Model)
+    {
+        idc++;
+        <div class="container property col-12">
+            <div class="prop-head">
+                <h5>@item.bhk BHK @item.property_type for @item.lease</h5>
+                <p>@item.property_address</p>
+            </div>
+            <div class="container section">
+                <div class="row">
+                    <div class="col-sm c">
+                        <p>@item.property_size sqft</p>
+                        <p><span>Builtup</span></p>
+                    </div>
+                    <div class="col-sm c">
+                        <p>₹@item.expected_deposit.ToString("0.00")</p>
+                        <p><span>Deposit</span></p>
+                    </div>
+                    <div class="col-sm c" style="border:none;">
+                        <p>₹@item.expected_rent.ToString("0.00")</p>
+                        <p><span>Rent</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 c2">
+                        <div id="carouselExampleFade_@idc" class="carousel slide carousel-fade" style="width:210px" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @{
+                                    int count = 1;
+                                    if (item.property_images.Count == 0)
+                                    {
+                                        <div class="carousel-item active">
+                                            <img src="~/Content/images/no image.jpg" class="d-block" width="210" height="140" alt="...">
+                                        </div>
+                                    }
+                                }
+                                @foreach (var image in item.property_images)
+                                {
+                                    var base64 = Convert.ToBase64String(image.property_images1);
+                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                    if (count == 1)
+                                    {
+                                        <div class="carousel-item active">
+                                            <img src="@imgSrc" class="d-block" width="210" height="140" alt="...">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item">
+                                            <img src="@imgSrc" class="d-block" width="210" height="140" alt="...">
+                                        </div>
+                                    }
+                                    count++;
+                                }
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleFade_@idc" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleFade_@idc" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md c2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col c3">
+                                    <p>@item.furnishing</p>
+                                    <p><span>Furnishing</span></p>
+                                </div>
+                                <div class="col c3">
+                                    <p>@item.property_age years</p>
+                                    <p><span>Property Age</span></p>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col c3">
+                                    <p>@item.preferred_tenants</p>
+                                    <p><span>Preferred Tenants</span></p>
+                                </div>
+                                <div class="col c3">
+                                    @if (item.available_date > DateTime.Today)
+                                    {
+                                        <p>@item.available_date.ToString("d")</p>
+                                        <p><span>Availabe From</span></p>
+                                    }
+                                    else
+                                    {
+                                        <p>Available</p>
+                                        <p><span>Status</span></p>
+                                    }
+                                </div>
+                                <div class="w-100 sp"></div>
+                                <div class="col-12 cb d-flex justify-content-center">
+                                    @Html.ActionLink("Get Information", "Details", "Prop", new { id = item.property_id }, new { @class = "btn btn-primary btn-lg btn-block col-8 bl" })
+                                    <!--    <button type="button" class="btn btn-primary btn-lg btn-block col-8 bl">Get Information</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("html").click(function () {
+                $(".alert").hide();
+            })
+        })
+    </script>
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+    <h2>CustomerIndex</h2>
+
+    @Html.ActionLink("View Booked Status", "Index","Bookings")
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.property_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_state)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_pin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bhk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.floor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_floor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bathroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bedroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.facing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.expected_rent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.expected_deposit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preferred_tenants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.furnishing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.parking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.post_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller.seller_name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_state)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_pin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bhk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.floor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total_floor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bathroom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bedroom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.facing)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lease)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.expected_rent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.expected_deposit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preferred_tenants)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.furnishing)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property_status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.post_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seller.seller_name)
+                </td>
+                <td>
+                    @foreach (var image in item.property_images)
+                    {
+                        var base64 = Convert.ToBase64String(image.property_images1);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                        <img src="@imgSrc" width="100" height="100" />
+                    }
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.property_id })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+*@

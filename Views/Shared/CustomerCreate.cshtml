@@ -1,0 +1,90 @@
+﻿@model OnlineHouseRentManagementSystem.Models.customer
+
+@using (Html.BeginForm("Create", "Customers", FormMethod.Post,new {onsubmit = "return checkcustomer()" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row lr">
+        <input type="text" class = "form-control col-sm-10 lin" id="customer_name" name="customer_name" placeholder="Name" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <input type="email" class="form-control col-sm-10 lin" id="customer_email" name="customer_email" placeholder="Email" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.customer_email, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <input type="number" class="form-control col-sm-10 lin" id="customer_phone" name="customer_phone" placeholder="Phone no" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.customer_phone, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <input type="text" class="form-control col-sm-10 lin" id="customer_state" name="customer_state" placeholder="State" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.customer_state, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <button type="submit" class="btn btn-primary btn-lg btn-block sc col-sm-8" id="customer_submit">Create</button>
+    </div>
+}
+
+
+
+@*
+    @using (Html.BeginForm("Create","Customers",FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>customer</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="customer_name" class="control-label col-md-2">Customer Name</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="customer_email" class="control-label col-md-2">Email</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customer_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="customer_phone" class="control-label col-md-2">Mobile Number</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customer_phone, new { htmlAttributes = new { @class = "form-control", @type = "number"} })
+                @Html.ValidationMessageFor(model => model.customer_phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="customer_state" class="control-label col-md-2">State</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customer_state, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_state, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+*@
+

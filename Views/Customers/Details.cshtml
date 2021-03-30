@@ -1,0 +1,58 @@
+﻿@model OnlineHouseRentManagementSystem.Models.customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_state)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.customer_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

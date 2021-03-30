@@ -1,0 +1,1786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB530367-F136-429C-B183-567957C4DEAD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineHouseRentManagementSystem</RootNamespace>
+    <AssemblyName>OnlineHouseRentManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44371</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PropController.cs" />
+    <Compile Include="Controllers\SellersController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="EmailSettings\SendEmail.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\booked_properties.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\booking_details.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customer.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customers_status.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HouseRentManagementModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HouseRentManagementModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HouseRentManagementModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HouseRentManagementModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HouseRentManagementModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\property.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\property_images.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\seller.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sellers_status.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>HouseRentManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\SellerViewModel.cs" />
+    <Compile Include="ViewModel\TopSellers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-icons-1.4.0\alarm-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\alarm.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\align-bottom.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\align-center.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\align-end.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\align-middle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\align-start.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\align-top.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\app-indicator.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\app.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\archive-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\archive.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-90deg-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-90deg-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-90deg-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-90deg-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-bar-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-bar-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-bar-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-bar-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-clockwise.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-counterclockwise.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-left-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-left-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-left-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-left-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-right-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-right-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-right-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-right-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-short.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left-short.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-repeat.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-return-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-return-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-right-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-right-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-right-short.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-right-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-right-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-left-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-left-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-left-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-left-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-right-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-right-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-right-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-right-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-short.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrow-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrows-angle-contract.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrows-angle-expand.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrows-collapse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrows-expand.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrows-fullscreen.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\arrows-move.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\aspect-ratio-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\aspect-ratio.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\asterisk.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\at.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\award-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\award.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\back.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\backspace-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\backspace-reverse-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\backspace-reverse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\backspace.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-3d-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-3d.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-4k-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-4k.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-8k-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-8k.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-ad-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-ad.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-ar-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-ar.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-cc-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-cc.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-hd-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-hd.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-tm-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-tm.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-vo-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-vo.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-vr-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-vr.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-wc-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\badge-wc.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-dash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-dash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bag.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bar-chart-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bar-chart-line-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bar-chart-line.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bar-chart-steps.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bar-chart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\basket-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\basket.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\basket2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\basket2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\basket3-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\basket3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\battery-charging.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\battery-full.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\battery-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\battery.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bell-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bell.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bezier.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bezier2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bicycle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\binoculars-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\binoculars.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\blockquote-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\blockquote-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\book-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\book-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\book.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-dash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-dash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-heart-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-heart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-star-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-star.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmark.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmarks-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookmarks.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bookshelf.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bootstrap-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bootstrap-icons.css" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bootstrap-icons.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bootstrap-reboot.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bootstrap.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-all.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-bottom.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-center.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-inner.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-middle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-outer.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-style.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-top.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border-width.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\border.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bounding-box-circles.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bounding-box.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-down-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-down-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-down-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-down-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-up-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-up-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-in-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-up-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-up-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-arrow-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box-seam.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\box.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\braces.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bricks.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\briefcase-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\briefcase.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-alt-high-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-alt-high.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-alt-low-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-alt-low.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-high-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-high.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-low-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brightness-low.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\broadcast-pin.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\broadcast.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brush-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\brush.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bucket-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bucket.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bug-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bug.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\building.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bullseye.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calculator-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calculator.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-date-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-date.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-day-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-day.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-event-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-event.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-month-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-month.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-range-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-range.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-week-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-week.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-date-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-date.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-day-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-day.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-event-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-event.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-month-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-month.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-range-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-range.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-week-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-week.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-event-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-event.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-range-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-range.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-week-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3-week.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar4-event.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar4-range.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar4-week.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\calendar4.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-reels-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-reels.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-video-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-video-off-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-video-off.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera-video.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\camera2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\capslock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\capslock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\card-checklist.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\card-heading.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\card-image.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\card-list.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\card-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-down-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-down-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-left-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-left-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-left-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-right-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-right-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-right-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-up-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-up-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-up-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\caret-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-dash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-dash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cart4.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cash-stack.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cast.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-dots-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-dots.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-dots-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-dots.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-quote-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-quote.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-text-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-quote-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-quote.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-dots-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-dots.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-quote-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-quote.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-text-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-dots-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-dots.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-quote-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-quote.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-text-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-text-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chat.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check-all.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check2-all.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check2-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check2-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\check2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-bar-contract.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-bar-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-bar-expand.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-bar-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-bar-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-bar-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-compact-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-compact-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-compact-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-compact-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-contract.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-double-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-double-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-double-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-double-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-expand.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\chevron-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\circle-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\circle-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clipboard-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clipboard-data.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clipboard-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clipboard-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clipboard-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clipboard.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clock-history.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-arrow-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-arrow-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-arrow-up-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-arrow-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-download-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-download.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-drizzle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-drizzle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-fog-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-fog.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-fog2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-fog2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-hail-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-hail.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-haze-1.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-haze-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-haze.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-haze2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-lightning-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-lightning-rain-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-lightning-rain.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-lightning.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-moon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-moon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-rain-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-rain-heavy-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-rain-heavy.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-rain.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-slash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-slash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-sleet-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-sleet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-snow-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-snow.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-sun-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-sun.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-upload-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud-upload.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloud.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clouds-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\clouds.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloudy-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cloudy.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\code-slash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\code-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\code.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\collection-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\collection-play-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\collection-play.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\collection.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\columns-gap.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\columns.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\command.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\compass-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\compass.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cone-striped.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cone.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\controller.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cpu-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cpu.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\credit-card-2-back-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\credit-card-2-back.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\credit-card-2-front-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\credit-card-2-front.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\credit-card-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\credit-card.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\crop.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cup-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cup-straw.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cup.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cursor-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cursor-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\cursor.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash-circle-dotted.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash-square-dotted.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diagram-2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diagram-2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diagram-3-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diagram-3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diamond-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diamond-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\diamond.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-1-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-1.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-3-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-4-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-4.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-5-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-5.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-6-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dice-6.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\disc-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\disc.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\discord.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\display-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\display.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\distribute-horizontal.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\distribute-vertical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\door-closed-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\door-closed.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\door-open-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\door-open.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\dot.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\download.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\droplet-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\droplet-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\droplet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\earbuds.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\easel-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\easel.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\egg-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\egg-fried.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\egg.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eject-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eject.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-angry-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-angry.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-dizzy-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-dizzy.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-expressionless-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-expressionless.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-frown-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-frown.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-heart-eyes-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-heart-eyes.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-laughing-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-laughing.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-neutral-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-neutral.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-smile-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-smile-upside-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-smile-upside-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-smile.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-sunglasses-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-sunglasses.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-wink-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\emoji-wink.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\envelope-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\envelope-open-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\envelope-open.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\envelope.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eraser-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eraser.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-diamond-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-diamond.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-octagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-octagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-triangle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation-triangle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclamation.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\exclude.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eye-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eye-slash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eye-slash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eye.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eyedropper.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\eyeglasses.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\facebook.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-arrow-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-arrow-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-arrow-up-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-arrow-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-bar-graph-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-bar-graph.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-binary-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-binary.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-break-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-break.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-code-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-code.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-diff-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-diff.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-arrow-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-arrow-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-arrow-up-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-arrow-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-bar-graph-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-bar-graph.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-binary-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-binary.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-break-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-break.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-code-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-code.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-diff-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-diff.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-easel-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-easel.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-excel-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-excel.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-font-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-font.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-image-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-image.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-lock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-lock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-lock2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-lock2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-medical-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-medical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-music-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-music.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-person-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-person.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-play-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-play.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-post-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-post.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-ppt-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-ppt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-richtext-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-richtext.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-ruled-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-ruled.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-slides-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-slides.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-spreadsheet-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-spreadsheet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-text-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-word-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-word.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-zip-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark-zip.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-earmark.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-easel-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-easel.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-excel-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-excel.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-font-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-font.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-image-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-image.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-lock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-lock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-lock2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-lock2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-medical-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-medical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-music-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-music.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-person-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-person.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-play-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-play.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-post-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-post.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-ppt-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-ppt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-richtext-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-richtext.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-ruled-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-ruled.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-slides-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-slides.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-spreadsheet-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-spreadsheet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-text-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-word-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-word.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-zip-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file-zip.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\file.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\files-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\files.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\film.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\filter.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\flag-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\flag.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\flower1.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\flower2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\flower3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-symlink-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-symlink.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder2-open.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\folder2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\fonts.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\forward-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\forward.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\front.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\fullscreen-exit.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\fullscreen.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\funnel-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\funnel.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gear-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gear-wide-connected.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gear-wide.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gear.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gem.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\geo-alt-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\geo-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\geo-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\geo.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gift-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\gift.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\github.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\globe.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\globe2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\google.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\graph-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\graph-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-1x2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-1x2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-3x2-gap-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-3x2-gap.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-3x2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-3x3-gap-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-3x3-gap.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-3x3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grid.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grip-horizontal.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\grip-vertical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hammer.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-index-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-index-thumb-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-index-thumb.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-index.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-thumbs-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-thumbs-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-thumbs-up-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hand-thumbs-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\handbag-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\handbag.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-network-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-network.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-rack-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-rack.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-stack-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd-stack.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hdd.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\headphones.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\headset.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\heart-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\heart-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\heart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\heptagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\heptagon-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\heptagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hexagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hexagon-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hexagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hourglass-bottom.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hourglass-split.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hourglass-top.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hourglass.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\house-door-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\house-door.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\house-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\house.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hr.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\hurricane.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\image-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\image-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\image.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\images.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\inbox-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\inbox.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\inboxes-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\inboxes.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\index.html" />
+    <Content Include="Content\bootstrap-icons-1.4.0\info-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\info-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\info-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\info-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\info.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\input-cursor-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\input-cursor.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\instagram.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\intersect.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-album.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-arrow-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-arrow-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-bookmark-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-bookmark.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-code.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-medical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-richtext.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-text.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journal.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\journals.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\joystick.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\justify-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\justify-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\justify.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\kanban-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\kanban.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\key-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\key.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\keyboard-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\keyboard.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\ladder.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lamp-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lamp.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\laptop-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\laptop.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layer-backward.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layer-forward.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layers-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layers-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layers.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-sidebar-inset-reverse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-sidebar-inset.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-sidebar-reverse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-sidebar.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-split.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-text-sidebar-reverse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-text-sidebar.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-text-window-reverse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-text-window.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-three-columns.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\layout-wtf.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\life-preserver.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightbulb-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightbulb-off-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightbulb-off.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightbulb.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightning-charge-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightning-charge.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightning-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lightning.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\link-45deg.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\link.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\linkedin.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list-nested.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list-ol.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list-stars.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list-task.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list-ul.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\list.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\lock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mailbox.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mailbox2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\map-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\map.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\markdown-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\markdown.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mask.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\megaphone-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\megaphone.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-app-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-app.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-button-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-button-wide-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-button-wide.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-button.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\menu-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mic-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mic-mute-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mic-mute.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mic.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\minecart-loaded.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\minecart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\moisture.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\moon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\moon-stars-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\moon-stars.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\moon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mouse-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mouse.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mouse2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mouse2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mouse3-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\mouse3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\music-note-beamed.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\music-note-list.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\music-note.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\music-player-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\music-player.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\newspaper.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\node-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\node-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\node-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\node-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\nut-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\nut.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\octagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\octagon-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\octagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\option.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\outlet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\paint-bucket.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\palette-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\palette.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\palette2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\paperclip.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\paragraph.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-exclamation-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-exclamation.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-question-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\patch-question.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pause-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pause-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pause-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pause-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pause-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pause.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\peace-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\peace.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pen-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pen.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pencil-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pencil-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pencil.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pentagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pentagon-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pentagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\people-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\people.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\percent.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-badge-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-badge.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-bounding-box.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-check-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-dash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-dash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-lines-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\person.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\phone-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\phone-landscape-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\phone-landscape.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\phone-vibrate-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\phone-vibrate.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\phone.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pie-chart-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pie-chart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pin-angle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pin-angle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pin-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pin.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pip-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\pip.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\play-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\play-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\play-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\play-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\play-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\play.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plug-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plug.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus-circle-dotted.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus-square-dotted.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\power.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\printer-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\printer.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\puzzle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\puzzle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-diamond-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-diamond.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-octagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-octagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\question.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\rainbow.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\receipt-cutoff.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\receipt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reception-0.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reception-1.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reception-2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reception-3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reception-4.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\record2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reply-all-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reply-all.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reply-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\reply.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\rss-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\rss.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\rulers.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\save-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\save.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\save2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\save2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\scissors.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\screwdriver.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\search.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\segmented-nav.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\server.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\share-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\share.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-exclamation.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-fill-check.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-fill-exclamation.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-fill-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-fill-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-fill-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-lock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-lock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-shaded.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-slash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-slash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shield.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shift-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shift.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shop-window.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shop.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\shuffle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\signpost-2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\signpost-2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\signpost-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\signpost-split-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\signpost-split.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\signpost.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sim-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sim.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-backward-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-backward-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-backward-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-backward-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-backward-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-backward.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-end-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-end-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-end-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-end-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-end-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-end.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-forward-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-forward-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-forward-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-forward-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-forward-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-forward.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-start-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-start-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-start-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-start-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-start-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\skip-start.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\slack.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\slash-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\slash-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\slash-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\slash-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\slash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sliders.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\smartwatch.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\snow.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\snow2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\snow3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-alpha-down-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-alpha-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-alpha-up-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-alpha-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-down-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-numeric-down-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-numeric-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-numeric-up-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-numeric-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-up-alt.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sort-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\soundwave.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\speaker-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\speaker.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\speedometer.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\speedometer2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\spellcheck.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\square-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stack.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\star-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\star-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\star.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stars.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stickies-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stickies.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sticky-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sticky.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stop-btn-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stop-btn.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stop-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stop-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stop-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stop.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stoplights-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stoplights.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stopwatch-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\stopwatch.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\subtract.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-club-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-club.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-diamond-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-diamond.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-heart-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-heart.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-spade-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\suit-spade.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sun-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sun.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sunglasses.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sunrise-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sunrise.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sunset-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\sunset.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\symmetry-horizontal.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\symmetry-vertical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\table.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tablet-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tablet-landscape-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tablet-landscape.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tablet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tag-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tag.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tags-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tags.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telegram.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-forward-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-forward.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-inbound-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-inbound.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-minus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-minus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-outbound-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-outbound.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-plus-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-plus.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-x-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone-x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\telephone.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\terminal-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\terminal.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\text-center.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\text-indent-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\text-indent-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\text-left.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\text-paragraph.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\text-right.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\textarea-resize.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\textarea-t.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\textarea.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\thermometer-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\thermometer-high.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\thermometer-low.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\thermometer-snow.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\thermometer-sun.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\thermometer.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\three-dots-vertical.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\three-dots.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\toggle-off.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\toggle-on.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\toggle2-off.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\toggle2-on.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\toggles.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\toggles2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tools.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tornado.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\trash-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\trash.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\trash2-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\trash2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tree-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tree.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\triangle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\triangle-half.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\triangle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\trophy-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\trophy.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tropical-storm.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\truck-flatbed.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\truck.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tsunami.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tv-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\tv.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\twitch.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\twitter.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-bold.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-h1.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-h2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-h3.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-italic.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-strikethrough.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type-underline.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\type.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\ui-checks-grid.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\ui-checks.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\ui-radios-grid.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\ui-radios.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\umbrella-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\umbrella.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\union.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\unlock-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\unlock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\upc-scan.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\upc.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\upload.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\vector-pen.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\view-list.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\view-stacked.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\vinyl-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\vinyl.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\voicemail.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-down-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-down.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-mute-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-mute.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-off-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-off.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-up-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\volume-up.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\vr.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wallet-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wallet.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wallet2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\watch.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\water.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\whatsapp.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wifi-1.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wifi-2.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wifi-off.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wifi.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wind.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\window-dock.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\window-sidebar.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\window.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\wrench.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-circle-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-circle.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-diamond-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-diamond.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-octagon-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-octagon.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-square-fill.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x-square.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\x.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\youtube.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\zoom-in.svg" />
+    <Content Include="Content\bootstrap-icons-1.4.0\zoom-out.svg" />
+    <Content Include="Content\bootstrap-materia.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\Homebg.jpg" />
+    <Content Include="Content\images\no image.jpg" />
+    <Content Include="Content\scripts\password_validation.js" />
+    <Content Include="Content\scripts\PropertyCreate.js" />
+    <Content Include="Content\scripts\SignupLogin.js" />
+    <Content Include="Content\stylesheets\Edit\SellerCustomerEdit.css" />
+    <Content Include="Content\stylesheets\Home\Home_index.css" />
+    <Content Include="Content\stylesheets\Home\SignupLogin.css" />
+    <Content Include="Content\stylesheets\Others\SellerHome.css" />
+    <Content Include="Content\stylesheets\Property\CustomerIndex.css" />
+    <Content Include="Content\stylesheets\Property\Index.css" />
+    <Content Include="Content\stylesheets\Property\PropertyCreate.css" />
+    <Content Include="Content\stylesheets\Property\PropertyDetails.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\HouseRentManagementModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HouseRentManagementModel.edmx</DependentUpon>
+      <LastGenOutput>HouseRentManagementModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\HouseRentManagementModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HouseRentManagementModel.edmx</DependentUpon>
+      <LastGenOutput>HouseRentManagementModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <EntityDeploy Include="Models\HouseRentManagementModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HouseRentManagementModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\HouseRentManagementModel.edmx.diagram">
+      <DependentUpon>HouseRentManagementModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\CitiesJson\cities.json" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-icons-1.4.0\bootstrap-icons.json" />
+    <Content Include="Content\bootstrap-icons-1.4.0\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\bootstrap-icons-1.4.0\fonts\bootstrap-icons.woff2" />
+    <None Include="Scripts\jquery-3.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Sellers\Create.cshtml" />
+    <Content Include="Views\Sellers\Delete.cshtml" />
+    <Content Include="Views\Sellers\Details.cshtml" />
+    <Content Include="Views\Sellers\Edit.cshtml" />
+    <Content Include="Views\Sellers\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Home\SignupLogin.cshtml" />
+    <Content Include="Views\Shared\SellerCreate.cshtml" />
+    <Content Include="Views\Shared\CustomerCreate.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Prop\Create.cshtml" />
+    <Content Include="Views\Prop\Delete.cshtml" />
+    <Content Include="Views\Prop\Details.cshtml" />
+    <Content Include="Views\Prop\Edit.cshtml" />
+    <Content Include="Views\Prop\Index.cshtml" />
+    <Content Include="Views\Prop\CustomerIndex.cshtml" />
+    <Content Include="Views\Shared\ForgotPassword.cshtml" />
+    <Content Include="Views\bookings\Create.cshtml" />
+    <Content Include="Views\bookings\Delete.cshtml" />
+    <Content Include="Views\bookings\Details.cshtml" />
+    <Content Include="Views\bookings\Edit.cshtml" />
+    <Content Include="Views\bookings\Index.cshtml" />
+    <Content Include="Views\bookings\BookedDetails.cshtml" />
+    <Content Include="Views\bookings\BookedSellers.cshtml" />
+    <Content Include="Views\bookings\SellerIndex.cshtml" />
+    <Content Include="Views\bookings\ShortListed.cshtml" />
+    <Content Include="Views\bookings\Book.cshtml" />
+    <Content Include="Views\Sellers\Home.cshtml" />
+    <Content Include="Views\bookings\DeleteBooking.cshtml" />
+    <Content Include="Views\Prop\TopSeller.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1329</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44371/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

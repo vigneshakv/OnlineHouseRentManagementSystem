@@ -1,0 +1,201 @@
+﻿@model OnlineHouseRentManagementSystem.Models.customer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<link href="~/Content/stylesheets/Edit/SellerCustomerEdit.css" rel="stylesheet" />
+@if (ViewData["saved"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        Saved..!!
+    </div>
+}
+<div class="container text-capitalize main">
+
+    @using (Html.BeginForm("Edit", "Customers", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return check()" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.customer_id)
+        <div class="container header text-center">
+            <h3>Profile</h3>
+            <div class="forprofileimg">
+                @{
+                    var imgSrc = "/Content/images/no image.jpg";
+                }
+                @{if (Model.customer_photo != null)
+                    {
+                        var base64 = Convert.ToBase64String(Model.customer_photo);
+                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                }
+                <img id="ImgPreview" src="@imgSrc" alt="No image" width=170 height=170 />
+            </div>
+            <label id="filelabel">
+                Change Image
+                <input type="file" name="customer_photo" onchange="ImgPre(this)" />
+            </label>
+        </div>
+        <div class="container col-11" id="contents">
+            <div class="row row-cols-2">
+                <div class="col"><label>customer Name</label></div>
+                <div class="col"><label>customer Email</label></div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control req" required id="customer_name" name="customer_name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly value="@Model.customer_name">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="email" class="form-control req" required id="customer_email" name="customer_email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly value="@Model.customer_email">
+                    </div>
+                </div>
+                <div class="col"><label>customer State</label></div>
+                <div class="col"><label>customer Phone</label></div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control req" required id="customer_state" name="customer_state" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@Model.customer_state">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="number" class="form-control req" required id="customer_phone" name="customer_phone" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="@Model.customer_phone">
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+        function check() {
+            var phone = $("#customer_phone").val().toString();
+            if (phone.length != 10) {
+                alert("Enter Valid Phone number");
+                $("#customer_phone").css("border-color", "red");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        $(document).ready(function () {
+            $(".main").click(function () {
+                $(".alert").hide();
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+    <h2>Edit</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>customer</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.customer_id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.customer_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.customer_email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.customer_email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.customer_email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.customer_phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.customer_phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.customer_phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.customer_photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.customer_photo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.customer_photo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.customer_state, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.customer_state, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.customer_state, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+*@

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HouseRentManagementModelStoreContainer" CdmEntityContainer="HouseRentManagementEntities">
+    <EntitySetMapping Name="booking_details">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.booking_details">
+        <MappingFragment StoreEntitySet="booking_details">
+          <ScalarProperty Name="si_no" ColumnName="si_no" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="booking_status" ColumnName="booking_status" />
+          <ScalarProperty Name="book_date" ColumnName="book_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+          <ScalarProperty Name="customer_photo" ColumnName="customer_photo" />
+          <ScalarProperty Name="customer_state" ColumnName="customer_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="properties">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.property">
+        <MappingFragment StoreEntitySet="properties">
+          <ScalarProperty Name="available_date" ColumnName="available_date" />
+          <ScalarProperty Name="gated_security" ColumnName="gated_security" />
+          <ScalarProperty Name="water_supply" ColumnName="water_supply" />
+          <ScalarProperty Name="balcony" ColumnName="balcony" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="property_type" ColumnName="property_type" />
+          <ScalarProperty Name="property_name" ColumnName="property_name" />
+          <ScalarProperty Name="property_address" ColumnName="property_address" />
+          <ScalarProperty Name="property_state" ColumnName="property_state" />
+          <ScalarProperty Name="property_city" ColumnName="property_city" />
+          <ScalarProperty Name="property_pin" ColumnName="property_pin" />
+          <ScalarProperty Name="bhk" ColumnName="bhk" />
+          <ScalarProperty Name="floor" ColumnName="floor" />
+          <ScalarProperty Name="total_floor" ColumnName="total_floor" />
+          <ScalarProperty Name="bathroom" ColumnName="bathroom" />
+          <ScalarProperty Name="bedroom" ColumnName="bedroom" />
+          <ScalarProperty Name="property_age" ColumnName="property_age" />
+          <ScalarProperty Name="facing" ColumnName="facing" />
+          <ScalarProperty Name="property_size" ColumnName="property_size" />
+          <ScalarProperty Name="lease" ColumnName="lease" />
+          <ScalarProperty Name="expected_rent" ColumnName="expected_rent" />
+          <ScalarProperty Name="expected_deposit" ColumnName="expected_deposit" />
+          <ScalarProperty Name="preferred_tenants" ColumnName="preferred_tenants" />
+          <ScalarProperty Name="furnishing" ColumnName="furnishing" />
+          <ScalarProperty Name="parking" ColumnName="parking" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="property_status" ColumnName="property_status" />
+          <ScalarProperty Name="post_date" ColumnName="post_date" />
+          <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="property_images">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.property_images">
+        <MappingFragment StoreEntitySet="property_images">
+          <ScalarProperty Name="si_no" ColumnName="si_no" />
+          <ScalarProperty Name="property_images1" ColumnName="property_images" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sellers">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.seller">
+        <MappingFragment StoreEntitySet="sellers">
+          <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+          <ScalarProperty Name="seller_name" ColumnName="seller_name" />
+          <ScalarProperty Name="seller_email" ColumnName="seller_email" />
+          <ScalarProperty Name="seller_phone" ColumnName="seller_phone" />
+          <ScalarProperty Name="seller_photo" ColumnName="seller_photo" />
+          <ScalarProperty Name="seller_state" ColumnName="seller_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_role" ColumnName="user_role" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="booked_properties">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.booked_properties">
+        <MappingFragment StoreEntitySet="booked_properties">
+          <ScalarProperty Name="book_date" ColumnName="book_date" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="seller_name" ColumnName="seller_name" />
+          <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+          <ScalarProperty Name="bhk" ColumnName="bhk" />
+          <ScalarProperty Name="property_pin" ColumnName="property_pin" />
+          <ScalarProperty Name="property_city" ColumnName="property_city" />
+          <ScalarProperty Name="property_state" ColumnName="property_state" />
+          <ScalarProperty Name="property_address" ColumnName="property_address" />
+          <ScalarProperty Name="property_type" ColumnName="property_type" />
+          <ScalarProperty Name="property_name" ColumnName="property_name" />
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="si_no" ColumnName="si_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers_status">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.customers_status">
+        <MappingFragment StoreEntitySet="customers_status">
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="si_no" ColumnName="si_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sellers_status">
+      <EntityTypeMapping TypeName="HouseRentManagementModel.sellers_status">
+        <MappingFragment StoreEntitySet="sellers_status">
+          <ScalarProperty Name="property_id" ColumnName="property_id" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="si_no" ColumnName="si_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,38 @@
+﻿.h1 {
+    margin-top: 150px;
+    text-align: center;
+}
+.h1 h1{
+    color : white;
+    font-size : 30px;
+    font-weight : bolder;
+}
+.c {
+    padding: 1px 0px; !important;
+}
+.row{
+    width : 70%;
+}
+.content{
+    margin-top : 70px;
+}
+.ci{
+    width : 100%;
+    border-radius: 0px;
+    height : 100%;
+    border : none;
+}
+.cs {
+    background-color: #d4d9d6;
+}
+
+
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../images/Homebg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+@media (min-width: 576px) {
+    .h1 h1 {
+        font-size: 70px;
+    }
+}

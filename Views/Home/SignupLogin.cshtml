@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "SignupLogin";
+}
+<link href="~/Content/stylesheets/Home/SignupLogin.css" rel="stylesheet" />
+<style>
+    #signlog {
+        color: white;
+    }
+</style>
+@if ((String)Session["message"] != null && (String)Session["message"] != "")
+{
+    var msg = (String)Session["message"];
+    <div class="container alert alert-danger text-center col-sm-7" role="alert" id="alert">
+       @msg
+    </div>
+    Session["message"] = null;
+    Session.Clear();
+}
+<div class="content container col-md-6">
+    <div class="header">
+        <h1>User Login / Signup</h1>
+    </div>
+    <div class="container sections">
+        <div class="row">
+            <div class="col-lg c">
+                <button type="button" class="btn btn-primary col-12 b  click" id="login">Login</button>
+            </div>
+            <div class="col-lg c">
+                <button type="button" class="btn btn-primary col-12 b" id="seller">Seller</button>
+            </div>
+            <div class="col-lg c">
+                <button type="button" class="btn btn-primary col-12 b" id="customer">Customer</button>
+            </div>
+        </div>
+        <div class="container login">@Html.Partial("Login")</div>
+        <div class="container seller">@Html.Partial("SellerCreate")</div>
+        <div class="container customer">@Html.Partial("CustomerCreate")</div>
+        <div>@Html.Partial("ForgotPassword")</div>
+        @*
+        <div class="container seller">
+            <div class="row lr">
+                <input type="text" placeholder="Email" class="form-control col-sm-10 lin" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div>
+                <p class="text-sm-center"><span></span></p>
+            </div>
+            <div class="row lr">
+                <input type="password" placeholder="Password" class="form-control col-sm-10 lin" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="row lr">
+                <button type="button" class="btn btn-primary btn-lg btn-block sc col-sm-8">Create</button>
+            </div>
+        </div>
+        *@
+    </div>
+    @*
+        <div class="container login">@Html.Partial("Login")</div>
+        <div class="container seller">@Html.Partial("SellerCreate")</div>
+        <div class="container customer">@Html.Partial("CustomerCreate")</div>
+        <div>@Html.Partial("ForgotPassword")</div>
+
+    *@
+</div>
+
+@section Scripts{
+    <script src="~/Content/scripts/SignupLogin.js"></script>
+    }

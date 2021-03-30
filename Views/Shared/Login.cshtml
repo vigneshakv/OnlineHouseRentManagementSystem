@@ -1,0 +1,82 @@
+﻿@model OnlineHouseRentManagementSystem.Models.user
+
+@using (Html.BeginForm("UserValidate", "Users", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    var userid = "";
+    var password = "";
+    var error = "";
+    try
+    {
+        userid = Request.Cookies["userid"].Value;
+        password = Request.Cookies["userpassword"].Value;
+        error = (string)ViewData["error"];
+    }
+    catch (Exception)
+    {
+        Response.Cookies["userid"].Value = "";
+        Response.Cookies["userpassword"].Value = "";
+        ViewData["error"] = "";
+    }
+
+
+    <div class="row lr">
+        <p class="text-danger font-weight-bold">@error</p>
+    </div>
+    <div class="row lr">
+        <input type="email" placeholder="Email" class="form-control col-sm-10 lin" id="useremail" name="useremail" value="@userid" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="row lr">
+        <input type="password" placeholder="Password" class="form-control col-sm-10 lin" id="userpassword" name="userpassword" value="@password" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+    </div>
+    <div class="row lr">
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input lin" id="rememberme" name="rememberme">
+            <label class="form-check-label" for="exampleCheck1">Remember Me..!</label>
+        </div>
+    </div>
+    <div class="row lr">
+        <button type="submit" class="btn btn-primary lb col-sm-5">Log in</button>
+        <button type="button" id="forgot-password" class="btn btn-outline-primary lb col-sm-5" data-toggle="modal" data-target="#exampleModal">Forgot Password ?</button>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+    @*
+        <h4>Log in</h4>
+        <hr />
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="control-label col-md-2">Email address</label>
+            <div class="col-md-10">
+                <input type="email" class="form-control" id="useremail" aria-describedby="emailHelp" name="useremail" value="@userid">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <p class="text-danger">@error</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userpassword" class="control-label col-md-2">Password</label>
+            <div class="col-md-10">
+                <input type="password" class="form-control" id="userpassword" name="userpassword" value="@password">
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <div class="col-md-10">
+                <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
+                <label class="form-check-label" for="rememberme">Remember me</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Log in" class="btn btn-primary" id="seller_submit" />
+                </div>
+            </div>
+            
+        </div>
+    *@

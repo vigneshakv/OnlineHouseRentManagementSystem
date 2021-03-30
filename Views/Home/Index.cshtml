@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/stylesheets/Home/Home_index.css" rel="stylesheet" />
+<style>
+    #home{
+        color:white;
+    }
+</style>
+@if (Session["user_role"] == null || (string)Session["user_role"] == "customer")
+{
+    <div class="container-md h1">
+        <h1>House Rent Management System</h1>
+    </div>
+    using (Html.BeginForm("CustomerIndex", "Prop"))
+    {
+        <div class="container content d-flex justify-content-center">
+            <div class="row">
+                <div class="col-sm c">
+                    <select class="custom-select ci col-12 cs" name="state" id="c1">
+                        <option value="tamilnadu" selected>Tamil Nadu</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="telangana">Telangana</option>
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="goa">Goa</option>
+                        <option value="kerala">Kerala</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 c">
+                        <input type="text" class="form-control ci col-12" id="search_input" name="locality"/>
+                </div>
+                <div class="col-sm c">
+                    <button type="submit" class="btn btn-primary ci">Search</button>
+                </div>
+                <div class="col-sm c">
+                    <a name="sellerpost" href="@Url.Action("SignupLogin", "Home", new { useroption = "seller" })" class="btn btn-success ci">Post Property</a>
+                </div>
+            </div>
+        </div>
+    }
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

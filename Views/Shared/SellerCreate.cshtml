@@ -1,0 +1,90 @@
+﻿@model OnlineHouseRentManagementSystem.Models.seller
+
+@using (Html.BeginForm("Create", "Sellers", FormMethod.Post, new { onsubmit = "return checkseller()" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row lr">
+        <input type="text" class="form-control col-sm-10 lin" id="seller_name" name="seller_name" placeholder="Name" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.seller_name, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <input type="email" class="form-control col-sm-10 lin" id="seller_email" name="seller_email" placeholder="Email" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.seller_email, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <input type="number" class="form-control col-sm-10 lin" id="seller_phone" name="seller_phone" placeholder="Phone no" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.seller_phone, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <input type="text" class="form-control col-sm-10 lin" id="seller_state" name="seller_state" placeholder="State" required />
+    </div>
+    <div>
+        <p class="text-sm-center"> @Html.ValidationMessageFor(model => model.seller_state, "", new { @class = "text-danger" })</p>
+    </div>
+    <div class="row lr">
+        <button type="submit" class="btn btn-primary btn-lg btn-block sc col-sm-8" id="seller_submit">Create</button>
+    </div>
+}
+
+
+
+@*
+    @using (Html.BeginForm("Create","sellers",FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>seller</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="seller_name" class="control-label col-md-2">seller Name</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seller_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.seller_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="seller_email" class="control-label col-md-2">Email</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seller_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.seller_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="seller_phone" class="control-label col-md-2">Mobile Number</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seller_phone, new { htmlAttributes = new { @class = "form-control", @type = "number"} })
+                @Html.ValidationMessageFor(model => model.seller_phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="seller_state" class="control-label col-md-2">State</label>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.seller_state, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.seller_state, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+*@
+

@@ -1,0 +1,21 @@
+﻿@model OnlineHouseRentManagementSystem.Models.booking_details
+
+@{
+    ViewBag.Title = "DeleteBooking";
+}
+<style>
+    span {
+        font-weight: bold;
+    }
+</style>
+<div class="container mt-5 text-capitalize">
+    <h2>Are you sure you want to cancel the Booking?</h2>
+    <hr />
+    <p><span>Name : </span>@Html.DisplayFor(model => model.customer.customer_name)</p>
+    <p><span>Property type : </span>@Html.DisplayFor(model => model.property.property_type)</p>
+    <p><span>Property Name : </span>@Html.DisplayFor(model => model.property.property_name)</p>
+    <div class="container">
+        @Html.ActionLink("Cancel the booking", "RequestCancel", new { si_no = Model.si_no }, new { @class = "btn btn-danger m-2" })
+        @Html.ActionLink("Back To The List", "Index", new { property_id = Model.property_id }, new { @class = "btn btn-primary" })
+    </div>
+</div>

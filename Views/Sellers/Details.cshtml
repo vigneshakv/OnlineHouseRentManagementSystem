@@ -1,0 +1,58 @@
+﻿@model OnlineHouseRentManagementSystem.Models.seller
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>seller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.seller_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seller_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seller_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seller_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seller_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seller_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seller_photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seller_photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seller_state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seller_state)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.seller_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

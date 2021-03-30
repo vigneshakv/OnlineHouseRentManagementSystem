@@ -1,0 +1,80 @@
+﻿@model OnlineHouseRentManagementSystem.Models.booking_details
+
+@{
+    ViewBag.Title = "Delete";
+}
+<style>
+    span {
+        font-weight: bold;
+    }
+</style>
+<div class="container mt-5 text-capitalize">
+    <h2>Are you sure you want to cancel the request?</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.booking_status)
+        @Html.HiddenFor(model => model.book_date)
+        <p><span>Name : </span>@Html.DisplayFor(model => model.customer.customer_name)</p>
+        <p><span>Property type : </span>@Html.DisplayFor(model => model.property.property_type)</p>
+        <p><span>Property Name : </span>@Html.DisplayFor(model => model.property.property_name)</p>
+        <div class="container">
+            <button type="submit" class="btn btn-danger">Delete Request</button>
+            @Html.ActionLink("Back To The List", "Index",new {property_id = Model.property_id },new {@class= "btn btn-primary"})
+        </div>
+    }
+</div>
+
+@*
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>booking_details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.booking_status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.booking_status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.book_date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.book_date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.customer.customer_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customer.customer_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.property.property_type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.property.property_type)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+*@

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<OnlineHouseRentManagementSystem.Models.booking_details>
+
+@{
+    ViewBag.Title = "ShortListed";
+}
+<style>
+    .table th, .table td {
+        vertical-align: middle;
+        text-transform: capitalize;
+    }
+</style>
+
+<!--Modal Disclimar-->
+<!-- Modal -->
+
+
+
+
+
+
+
+<div class="container text-capitalize">
+    <h2 class="text-center font-weight-bold p-3">SHORTLISTED</h2>
+    @Html.ActionLink("Back", "Index", new { property_id = ViewData["Property_id"] }, new { @class = "btn btn-primary mb-2" })
+    <table class="table">
+        <tr>
+            <th>
+                <label>Booking Status</label>
+            </th>
+            <th>
+                <label>Book Date</label>
+            </th>
+            <th>
+                <label>Customer Name</label>
+            </th>
+            <th>
+                <label>Customer Phone</label>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.booking_status)
+                </td>
+                <td>
+                    @item.book_date.ToString("d")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customer.customer_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.property.property_type)
+                </td>
+                <td>
+                    @Html.ActionLink("Book", "Book", new { si_no = item.si_no }, new { @class = "btn btn-success m-2" })
+                    @Html.ActionLink("Reject", "AD", "Bookings", new { si_no = item.si_no, op = 0 }, new { @class = "btn btn-danger m-2" })
+                </td>
+            </tr>
+        }
+    </table>
+    @if (ViewData["listcount"] != null)
+    {
+        <h2 class="text-center">Empty</h2>
+        ViewData.Clear();
+    }
+</div>

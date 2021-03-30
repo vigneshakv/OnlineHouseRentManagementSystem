@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HouseRentManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="booking_details">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="property_id" Type="Int32" Nullable="false" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="booking_status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="book_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_booking_details_customers" FromRole="booking_details" ToRole="customers" />
+    <NavigationProperty Name="property" Relationship="Self.FK_booking_details_properties" FromRole="booking_details" ToRole="properties" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="customer_state" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="booking_details" Relationship="Self.FK_booking_details_customers" FromRole="customers" ToRole="booking_details" />
+  </EntityType>
+  <EntityType Name="property">
+    <Key>
+      <PropertyRef Name="property_id" />
+    </Key>
+    <Property Name="property_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="property_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="property_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="property_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="property_state" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="property_city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="property_pin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bhk" Type="Int32" Nullable="false" />
+    <Property Name="floor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="total_floor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bathroom" Type="Int32" Nullable="false" />
+    <Property Name="bedroom" Type="Int32" Nullable="false" />
+    <Property Name="property_age" Type="Int32" Nullable="false" />
+    <Property Name="facing" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="property_size" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lease" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="expected_rent" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="expected_deposit" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="preferred_tenants" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="furnishing" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="parking" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="property_status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="post_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="seller_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="booking_details" Relationship="Self.FK_booking_details_properties" FromRole="properties" ToRole="booking_details" />
+    <NavigationProperty Name="seller" Relationship="Self.Property_seller" FromRole="properties" ToRole="sellers" />
+    <NavigationProperty Name="property_images" Relationship="Self.property_property_images" FromRole="properties" ToRole="property_images" />
+    <Property Name="balcony" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="water_supply" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="gated_security" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="available_date" Type="DateTime" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="property_images">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="property_images1" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="property_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="property" Relationship="Self.property_property_images" FromRole="property_images" ToRole="properties" />
+  </EntityType>
+  <EntityType Name="seller">
+    <Key>
+      <PropertyRef Name="seller_id" />
+    </Key>
+    <Property Name="seller_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="seller_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="seller_email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="seller_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="seller_photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="seller_state" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="properties" Relationship="Self.Property_seller" FromRole="sellers" ToRole="properties" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_role" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_booking_details_customers">
+    <End Role="customers" Type="Self.customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="booking_details" Type="Self.booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="booking_details">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_booking_details_properties">
+    <End Role="properties" Type="Self.property" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="booking_details" Type="Self.booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="properties">
+        <PropertyRef Name="property_id" />
+      </Principal>
+      <Dependent Role="booking_details">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Property_seller">
+    <End Role="sellers" Type="Self.seller" Multiplicity="1" />
+    <End Role="properties" Type="Self.property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sellers">
+        <PropertyRef Name="seller_id" />
+      </Principal>
+      <Dependent Role="properties">
+        <PropertyRef Name="seller_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="property_property_images">
+    <End Role="properties" Type="Self.property" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="property_images" Type="Self.property_images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="properties">
+        <PropertyRef Name="property_id" />
+      </Principal>
+      <Dependent Role="property_images">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HouseRentManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="booking_details" EntityType="Self.booking_details" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="properties" EntityType="Self.property" />
+    <EntitySet Name="property_images" EntityType="Self.property_images" />
+    <EntitySet Name="sellers" EntityType="Self.seller" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_booking_details_customers" Association="Self.FK_booking_details_customers">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="booking_details" EntitySet="booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_details_properties" Association="Self.FK_booking_details_properties">
+      <End Role="properties" EntitySet="properties" />
+      <End Role="booking_details" EntitySet="booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="Property_seller" Association="Self.Property_seller">
+      <End Role="sellers" EntitySet="sellers" />
+      <End Role="properties" EntitySet="properties" />
+    </AssociationSet>
+    <AssociationSet Name="property_property_images" Association="Self.property_property_images">
+      <End Role="properties" EntitySet="properties" />
+      <End Role="property_images" EntitySet="property_images" />
+    </AssociationSet>
+    <EntitySet Name="booked_properties" EntityType="HouseRentManagementModel.booked_properties" />
+    <EntitySet Name="customers_status" EntityType="HouseRentManagementModel.customers_status" />
+    <EntitySet Name="sellers_status" EntityType="HouseRentManagementModel.sellers_status" />
+  </EntityContainer>
+  <EntityType Name="booked_properties">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="property_id" Type="Int32" Nullable="false" />
+    <Property Name="property_name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="property_type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="property_address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="property_state" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="property_city" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="property_pin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bhk" Type="Int32" Nullable="false" />
+    <Property Name="seller_id" Type="Int32" Nullable="false" />
+    <Property Name="seller_name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="customer_name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="book_date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="customers_status">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="seller_id" Type="Int32" Nullable="false" />
+    <Property Name="property_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sellers_status">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="property_id" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

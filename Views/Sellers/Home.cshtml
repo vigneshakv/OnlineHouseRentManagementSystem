@@ -1,0 +1,91 @@
+﻿@model OnlineHouseRentManagementSystem.ViewModel.SellerViewModel
+@{
+    ViewBag.Title = "Home";
+}
+<link href="~/Content/stylesheets/Others/SellerHome.css" rel="stylesheet" />
+<style>
+    #shome {
+        color: white;
+    }
+</style>
+<div class="container content text-capitalize">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="container w-100 c1 text-center text-capitalize">
+                    <div class="row">
+                        <div class="col" id="tr">
+                            <h4>Requests</h4>
+                            <p>@Model.TotalRequests</p>
+                        </div>
+                        <div class="col">
+                            <h4>Properties Booked</h4>
+                            <p>@Model.TotalBooking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="container w-100 c2 mt-2">
+                    <div class="container text-capitalize text-center prop">
+                        <div class="container w-100 header text-center">
+                            <h3>Booked Properties</h3>
+                        </div>
+                        @{ 
+                            int si_no = 0;
+                        }
+                        @foreach (var prop in Model.booked_Properties)
+                        {
+                            si_no++;
+                            <div class="row w-100 m-0" style="border-bottom:1px solid grey">
+                                <div class="col-3" style="border-right:1px solid grey">
+                                    <p class="font-weight-bold">SI.No</p>
+                                    <p>@si_no</p>
+                                </div>
+                                <div class="col-3" style="border-right:1px solid grey">
+                                    <p class="font-weight-bold">Property Name</p>
+                                    <p>@prop.property_name</p>
+                                </div>
+                                <div class="col-3" style="border-right:1px solid grey">
+                                    <p class="font-weight-bold">Bhk</p>
+                                    <p>@prop.bhk</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="font-weight-bold">Property City</p>
+                                    <p>@prop.property_city</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 c3 text-capitalize">
+                <div class="container w-100 c3-main">
+                    <div class="container w-100 header text-center">
+                        <h3>Messages</h3>
+                    </div>
+                    <div class="container p-2">
+                        @foreach (var msg in Model.customers_Statuses)
+                        {
+                            <div class="w-100">
+                                <p class="d-inline">@msg.message</p>
+                                <a class="btn btn-info btn-sm text-right" href="@Url.Action("MessageDelete","Sellers",new { si_no = msg.si_no})">Ok</a>
+                                <hr />
+                            </div>
+                        }
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*
+        @foreach (var item in Model.customers_Statuses)
+               {
+                   <p>@item.message</p>
+               }
+        @Model.TotalBooking
+        @Model.TotalRequests</p>
+    </div>
+*@

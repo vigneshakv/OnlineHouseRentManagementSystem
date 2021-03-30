@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OnlineHouseRentManagementSystem.ViewModel.TopSellers>
+
+@{
+    ViewBag.Title = "TopSeller";
+}
+<style>
+    .container {
+        margin-top: 20px;
+        background: white;
+        padding: 0px;
+        border: 1px solid #007bff;
+        border-radius:4px;
+        text-align:center;
+        min-height:80vh;
+    }
+    h1 {
+        background-color: #007bff;
+        color:white;
+        margin:0px 0px;
+        padding:10px;
+    }
+    body {
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../Content/images/Homebg.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
+<div class="container text-capitalize">
+    <h1>Top Sellers</h1>
+    <table class="table">
+        <tr>
+            <th>Seller Name</th>
+            <th>Seller State</th>
+            <th>Booked Total</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Sellers.seller_name</td>
+                <td>@item.Sellers.seller_state</td>
+                <td>@item.TotalBooking</td>
+            </tr>
+        }
+    </table>
+</div>

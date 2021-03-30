@@ -1,0 +1,138 @@
+﻿@model OnlineHouseRentManagementSystem.Models.booking_details
+
+@{
+    ViewBag.Title = "BookingConfirmation";
+}
+<style>
+    .table td {
+        text-transform: capitalize;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .btn-lg {
+        padding: 5px 100px;
+    }
+</style>
+<div class="container text-center">
+    <div class="header">
+        <h2 class="text-center">Booking Confirmation</h2>
+    </div>
+    <table class="table">
+        <tr>
+            <td>
+                <label>Property Name</label>
+            </td>
+            <td>
+                @Model.property.property_name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Property Type</label>
+            </td>
+            <td>
+                @Model.property.property_type
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Property Size</label>
+            </td>
+            <td>
+                @Model.property.property_size
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Property Location</label>
+            </td>
+            <td>
+                @Model.property.property_city,@Model.property.property_state,@Model.property.property_pin
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Property For</label>
+            </td>
+            <td>
+                @Model.property.lease
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Deposite</label>
+            </td>
+            <td>
+                ₹@Model.property.expected_deposit.ToString("0.00")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Rent</label>
+            </td>
+            <td>
+                ₹@Model.property.expected_rent.ToString("0.00")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Seller Name</label>
+            </td>
+            <td>
+                @Model.property.seller.seller_name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Customer Name</label>
+            </td>
+            <td>
+                @Model.customer.customer_name
+            </td>
+        </tr>
+    </table>
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#staticBackdrop">Proceed</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            @using (Html.BeginForm("BookConfirm", "Bookings", new { si_no = Model.si_no }))
+            {
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Disclimar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Make sure that the Customer is still interested in your Property, Once you book this Property For this
+                        Customer your Property will not be listed to the Other Customer's view. The Customer can cancel the booking of
+                        your Property within Three Days from booking date. If it was cancelled, you will get informed through mail and also
+                        in the dashboard of your Home Page.
+                        After three days the booking will be confirmed, Make sure that you will be available when the Customer tries to contact
+                        you.
+                        Our website only act as a medium to make the communication between Seller and the Customer, Apart from that all other 
+                        activities is on your own risk.
+                    </p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                        <label class="form-check-label" for="invalidCheck2" style="font-weight:normal">
+                            Agree to terms and conditions
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Understood</button>
+                    @* @Html.ActionLink("Understood", "BookConfirm", new { si_no = Model.si_no }, new { @class = "btn btn-primary" }) *@
+                </div>
+            }
+        </div>
+    </div>
+</div>

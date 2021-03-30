@@ -1,0 +1,98 @@
+﻿@model OnlineHouseRentManagementSystem.Models.user
+
+@{
+    ViewBag.Title = "Create";
+}
+<link href="~/Content/stylesheets/Home/SignupLogin.css" rel="stylesheet" />
+<style>
+    #user_email,#user_role {
+        border: 2px solid rgb(24, 152, 237);
+    }
+</style>
+<div class="content container-sm">
+    <div class="header">
+        <h1>User Signup</h1>
+    </div>
+    <div class="container login">
+        @using (Html.BeginForm("Create", "Users", FormMethod.Post, new { onsubmit = "return check()" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row lr">
+                @Html.TextBoxFor(model => model.user_email, new { @class = "form-control col-sm-10 lin", @Value = Session["email"], @readonly = "readonly" })
+            </div>
+            <div class="row lr">
+                @Html.TextBoxFor(model => model.user_role, new { @class = "form-control col-sm-10 lin", @Value = Session["user_role"], @readonly = "readonly" })
+            </div>
+            <div class="row lr">
+                <input type="password" placeholder="Password" class="form-control col-sm-10 lin" id="new_password" name="new_password" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="row lr">
+                <input type="password" placeholder="Confirm Password" class="form-control col-sm-10 lin" id="user_password" name="user_password" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="row lr">
+                <button type="submit" class="btn btn-primary btn-lg btn-block sc col-sm-8" id="user_submit">Proceed</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    @*
+
+
+        @using (Html.BeginForm("Create","Users",FormMethod.Post,new { onsubmit = "return check()" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>user</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger"})
+                <div class="form-group">
+                    @Html.LabelFor(model => model.user_email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.user_email, new { @Class = "form-control", @Value = Session["email"], @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.user_email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.user_role, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.user_role, new { @class = "form-control", @Value = Session["user_role"], @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.user_role, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <label for="password">Password : </label>
+                <input type="password" id="password" />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.user_password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.user_password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.user_password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default"/>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    *@
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Content/scripts/password_validation.js"></script>
+    }

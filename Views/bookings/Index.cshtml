@@ -1,0 +1,95 @@
+﻿@model IEnumerable<OnlineHouseRentManagementSystem.Models.booking_details>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .table th, .table td {
+        vertical-align: middle;
+        text-transform: capitalize;
+    }
+</style>
+@if ((string)TempData["request"] == "true")
+{
+    TempData.Clear();
+    <div class="alert alert-success" role="alert">
+        Requested!!
+    </div>
+}
+else if ((string)TempData["request"] == "false")
+{
+    TempData.Clear();
+    <div class="alert alert-primary" role="alert">
+        Already requested...!!
+    </div>
+}
+
+<div class="container text-capitalize">
+    <h2 class="text-center font-weight-bold p-3">Booking Details</h2>
+    <table class="table">
+        <tr>
+            <th>
+                <label>Booking Status</label>
+            </th>
+            <th>
+                <label>Book Date</label>
+            </th>
+            <th>
+                <label>Customer Name</label>
+            </th>
+            <th>
+                <label>Property Type</label>
+            </th>
+            <th>
+                <label>Property Name</label>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                     @item.booking_status
+                </td>
+                <td>
+                    @item.book_date.ToString("d")
+                </td>
+                <td>
+                    @item.customer.customer_name
+                </td>
+                <td>
+                    @item.property.property_type
+                </td>
+                <td>
+                    @item.property.property_name
+                </td>
+                <td>
+                    @{
+                        var today = DateTime.Today;
+                        var bookdate = item.book_date;
+                        var daysdiff = (today.Date - bookdate.Date).Days;
+                    }
+                    @Html.ActionLink("Details", "Details", "Prop", new { id = item.property_id }, new { @class = "btn btn-primary m-2" })
+                    @if (item.booking_status != "booked")
+                    {
+                        @Html.ActionLink("Cancel Request", "Delete", new { id = item.si_no }, new { @class = "btn btn-danger m-2" })
+                    }
+                    else if(daysdiff < 3)
+                    {
+                        @Html.ActionLink("Cancel the booking", "DeleteBooking", new { si_no = item.si_no }, new { @class = "btn btn-danger m-2" })
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("html").click(function () {
+                $(".alert").hide();
+            });
+        });
+    </script>
+    }

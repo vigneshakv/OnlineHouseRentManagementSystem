@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="039b382aeae24086ae7f99f834dedcb7" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="HouseRentManagementModel.booking_details" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.customer" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.property" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.property_images" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.seller" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.user" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HouseRentManagementModel.FK_booking_details_customers" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseRentManagementModel.FK_booking_details_properties" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseRentManagementModel.Property_seller" ManuallyRouted="false" />
+        <AssociationConnector Association="HouseRentManagementModel.property_property_images" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.booked_properties" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.customers_status" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HouseRentManagementModel.sellers_status" Width="1.5" PointX="9.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

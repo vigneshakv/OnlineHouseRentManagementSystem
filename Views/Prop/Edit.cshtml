@@ -1,0 +1,313 @@
+﻿@model OnlineHouseRentManagementSystem.Models.property
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<link href="~/Content/stylesheets/Property/PropertyCreate.css" rel="stylesheet" />
+<style>
+    .inner{
+        padding:4px;
+        text-align:center;
+    }
+</style>
+<div class="container-lg main col-lg-8">
+    <div class="container-lg header">
+        <h1>Property Details</h1>
+    </div>
+    <div class="container-lg content">
+        @using (Html.BeginForm("Edit", "Prop", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateCheck()" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.property_id);
+            <div class="container 1" id="D1">
+                <div class="row">
+                    <div class="col-sm c1">
+                        <label for="property_type">Property Type</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="property_type" id="property_type">
+                                <option selected value="@Model.property_type">@Model.property_type</option>
+                                <option value="House">House</option>
+                                <option value="Appartment">Appartment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="property_name">Property Name</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control req" placeholder="Enter Property Name" name="property_name" id="property_name" value="@Model.property_name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.property_name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="bhk">Enter BHK</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder="Enter BHK" name="bhk" id="bhk" value="@Model.bhk"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.bhk, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="bedroom">Bedrooms</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder="No. of Bedrooms" name="bedroom" id="bedroom"  value="@Model.bedroom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.bedroom, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="bathroom">Bathrooms</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder="No. of Bathrooms" name="bathroom" id="bathroom" value="@Model.bathroom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.bathroom, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="balcony">Balcony</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder="No. of Balcony" name="balcony" id="balcony" value="@Model.balcony" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.balcony, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="container 2" id="D2">
+                <div class="row">
+                    <div class="col-sm c1">
+                        <label for="property_state">Property State</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control req" placeholder="Enter Property State" name="property_state" id="property_state" value="@Model.property_state" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.property_state, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="property_city">Property City</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control req" placeholder="Enter Property City" name="property_city" id="property_city" value="@Model.property_city" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.property_city, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="property_address">Property Address</label>
+                        <div class="form-group input-group ta">
+                            <textarea class="form-control add" name="property_address" id="property_address" rows="5">@Model.property_address</textarea>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.property_address, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <div>
+                            <label for="property_pin">Property Pin</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control req" placeholder="PIN CODE" name="property_pin" id="property_pin"value="@Model.property_pin" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            @Html.ValidationMessageFor(model => model.property_pin, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="w-100"></div>
+                        <div style="margin-top:40px;">
+                            <label for="property_age">Property Age</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control req" placeholder="Age" name="property_age" id="property_age" value="@Model.property_age" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            @Html.ValidationMessageFor(model => model.property_pin, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container 3" id="D3">
+                <div class="row">
+                    <div class="col-md c1">
+                        <label for="floor">Floor No / Total Floors</label>
+                        <div class="row s d-flex justify-content-center">
+                            <div class="col-5 sc">
+                                <input type="number" class="form-control req" placeholder="Floor No." name="floor" id="floor" value="@Model.property_age" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                @Html.ValidationMessageFor(model => model.floor, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-5 sc">
+                                <input type="number" class="form-control req" placeholder="Total" name="total_floor" id="total_floor" value="@Model.total_floor" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                @Html.ValidationMessageFor(model => model.total_floor, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="property_size">Property Size</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder=".Sqft" name="property_size" id="property_size" value="@Model.property_size" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.property_size, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="facing">Facing</label>
+                        <div class="input-group">
+                            <select class="custom-select" name="facing" id="facing" required>
+                                <option selected value="@Model.facing">@Model.facing</option>
+                                <option value="North">North</option>
+                                <option value="North-East">North-East</option>
+                                <option value="East">East</option>
+                                <option value="South-East">South-East</option>
+                                <option value="South">South</option>
+                                <option value="South-West">South-West</option>
+                                <option value="West">West</option>
+                                <option value="North-West">North-West</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.facing, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="lease">Rent / Lease</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="lease" id="lease">
+                                <option selected value="@Model.lease">@Model.lease</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Lease">Lease</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.lease, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="expected_rent">Rent</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder="Rent Amount" name="expected_rent" id="expected_rent" value="@Model.expected_rent.ToString("0.00")" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.expected_rent, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="expected_deposit">Deposit</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control req" placeholder="Deposit Amount" name="expected_deposit" id="expected_deposit" value="@Model.expected_deposit.ToString("0.00")" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        @Html.ValidationMessageFor(model => model.expected_deposit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="container 4" id="D4">
+                <div class="row">
+                    <div class="col-sm c1">
+                        <label for="furnishing">Furnishing</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="furnishing" id="furnishing">
+                                <option selected @Model.furnishing>@Model.furnishing</option>
+                                <option value="Semi-Furnished">Semi-Furnished</option>
+                                <option value="Fully-Furnished">Fully-Furnished</option>
+                                <option value="None">None</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.furnishing, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="preferred_tenants">Preferred Tenant</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="preferred_tenants" id="preferred_tenants">
+                                <option selected value="@Model.preferred_tenants">@Model.preferred_tenants</option>
+                                <option value="Anyone">Anyone</option>
+                                <option value="Family">Family</option>
+                                <option value="Bachelors">Bachelors</option>
+                                <option value="Students">Students</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.preferred_tenants, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="parking">Parking</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="parking" id="parking">
+                                <option selected value="@Model.parking">@Model.parking</option>
+                                <option value="Bike">Bike</option>
+                                <option value="Bike and Car">Bike And Car</option>
+                                <option value="Car">Car</option>
+                                <option value="None">None</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.parking, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="water_supply">Water Supply</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="water_supply" id="water_supply">
+                                <option selected value="@Model.water_supply">@Model.water_supply</option>
+                                <option value="Corporation">Corporation</option>
+                                <option value="Borewell">Borewell</option>
+                                <option value="Corporation and Borewell">Corporation And Borewell</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.water_supply, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="description">Description</label>
+                        <div class="form-group input-group ta">
+                            <textarea class="form-control" name="description" id="description" rows="5">@Model.description</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="property_image">Images</label>
+                        <div class="container col-sm-12">
+                            @foreach (var item in Model.property_images)
+                            {
+                                var base64 = Convert.ToBase64String(item.property_images1);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <div class="inner col-5 d-inline-block">
+                                        <img src="@imgSrc" class="d-block" width="100" height="100" style="margin-bottom:2px;" />
+                                        @Html.ActionLink("Delete", "deleteimage", new { id = item.si_no, propertyid = Model.property_id },new { @class="btn btn-danger"})
+                                </div>
+                            }
+                        </div>
+                        <div class="input-group">
+                            <input type="file" class="form-control" style="border:none" name="property_image" accept="image/x-png,image/gif,image/jpeg" multiple />
+                        </div>
+
+
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                        <label for="gated_security">Gated Security</label>
+                        <div class="input-group">
+                            <select required class="custom-select" name="gated_security" id="gated_security">
+                                <option selected value="@Model.gated_security">@Model.gated_security</option>
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.gated_security, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm c1">
+                        <label for="available_date">Available From</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control req" placeholder="Available From" onchange="TDate()" name="available_date" id="available_date" />
+                        </div>
+                        @Html.ValidationMessageFor(model => model.gated_security, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-sm c1">
+                    </div>
+                    <div class="col-sm c1 d-flex align-items-end">
+                        <div class="input-group">
+                            <input type="submit" class="btn btn-success btn-lg m-auto" style="padding: 5px 30px" value="Save Changes" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="container butg">
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-primary" id="b1">1</button>
+                <button type="button" class="btn btn-primary" id="b2">2</button>
+                <button type="button" class="btn btn-primary" id="b3">3</button>
+                <button type="button" class="btn btn-primary" id="b4">4</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/scripts/PropertyCreate.js"></script>
+}

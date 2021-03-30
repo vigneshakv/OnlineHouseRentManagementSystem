@@ -1,0 +1,93 @@
+﻿@model OnlineHouseRentManagementSystem.Models.property
+
+@{
+    ViewBag.Title = "Delete";
+}
+<style>
+    .col {
+        padding: 10px;
+    }
+
+    .content {
+        background: white;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 4px;
+    }
+    h1 {
+        background: #007bff;
+        color:white;
+        padding:5px;
+        border-radius:4px;
+    }
+    h6 {
+        text-align: left;
+    }
+
+    hr {
+        border: 1px solid #007bff;
+    }
+    body {
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../Content/images/Homebg.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
+
+<div class="container col-lg-6 text-capitalize">
+    <div class="container content  text-center">
+        <h1>Deletion</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container text-center">
+                <div class="row row-cols-2 col-md-8 mx-auto">
+                    <div class="col"><h6>Property Name </h6></div>
+                    <div class="col">@Model.property_name</div>
+                    <div class="col"><h6>Property Type </h6></div>
+                    <div class="col">@Model.property_type</div>
+                    <div class="col"><h6>Property State </h6></div>
+                    <div class="col">@Model.property_state</div>
+                    <div class="col"><h6>Property City </h6></div>
+                    <div class="col">@Model.property_city</div>
+                    <div class="col"><h6>Bhk</h6></div>
+                    <div class="col">@Model.bhk</div>
+                    <div class="col p-2">
+                        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary col-6" })
+                    </div>
+                    <div class="col p-2"><button type="submit" class="btn btn-danger col-6">Delete</button></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+*@

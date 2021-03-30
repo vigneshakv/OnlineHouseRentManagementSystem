@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HouseRentManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="booked_properties">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+    <Property Name="property_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="property_type" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="property_address" Type="varchar(max)" Nullable="false" />
+    <Property Name="property_state" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="property_city" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="property_pin" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="bhk" Type="int" Nullable="false" />
+    <Property Name="seller_id" Type="int" Nullable="false" />
+    <Property Name="seller_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="customer_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="book_date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="booking_details">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="booking_status" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="book_date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="customer_email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="customer_phone" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="customer_photo" Type="image" />
+    <Property Name="customer_state" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customers_status">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="message" Type="varchar(max)" />
+    <Property Name="seller_id" Type="int" Nullable="false" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="properties">
+    <Key>
+      <PropertyRef Name="property_id" />
+    </Key>
+    <Property Name="property_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_type" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="property_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="property_address" Type="varchar(max)" Nullable="false" />
+    <Property Name="property_state" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="property_city" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="property_pin" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="bhk" Type="int" Nullable="false" />
+    <Property Name="floor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="total_floor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="bathroom" Type="int" Nullable="false" />
+    <Property Name="bedroom" Type="int" Nullable="false" />
+    <Property Name="property_age" Type="int" Nullable="false" />
+    <Property Name="facing" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="property_size" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="lease" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="expected_rent" Type="money" Nullable="false" />
+    <Property Name="expected_deposit" Type="money" Nullable="false" />
+    <Property Name="preferred_tenants" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="furnishing" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="parking" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="property_status" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="post_date" Type="date" Nullable="false" />
+    <Property Name="seller_id" Type="int" Nullable="false" />
+    <Property Name="balcony" Type="varchar" MaxLength="50" />
+    <Property Name="water_supply" Type="varchar" MaxLength="100" />
+    <Property Name="gated_security" Type="varchar" MaxLength="50" />
+    <Property Name="available_date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="property_images">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="property_images" Type="image" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sellers">
+    <Key>
+      <PropertyRef Name="seller_id" />
+    </Key>
+    <Property Name="seller_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="seller_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="seller_email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="seller_phone" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="seller_photo" Type="image" />
+    <Property Name="seller_state" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sellers_status">
+    <Key>
+      <PropertyRef Name="si_no" />
+    </Key>
+    <Property Name="si_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="message" Type="varchar(max)" />
+    <Property Name="property_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="user_role" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="user_password" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_booking_details_customers">
+    <End Role="customers" Type="Self.customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="booking_details" Type="Self.booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="booking_details">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_booking_details_properties">
+    <End Role="properties" Type="Self.properties" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="booking_details" Type="Self.booking_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="properties">
+        <PropertyRef Name="property_id" />
+      </Principal>
+      <Dependent Role="booking_details">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Property_seller">
+    <End Role="sellers" Type="Self.sellers" Multiplicity="1" />
+    <End Role="properties" Type="Self.properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sellers">
+        <PropertyRef Name="seller_id" />
+      </Principal>
+      <Dependent Role="properties">
+        <PropertyRef Name="seller_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="property-property_images">
+    <End Role="properties" Type="Self.properties" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="property_images" Type="Self.property_images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="properties">
+        <PropertyRef Name="property_id" />
+      </Principal>
+      <Dependent Role="property_images">
+        <PropertyRef Name="property_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HouseRentManagementModelStoreContainer">
+    <EntitySet Name="booked_properties" EntityType="Self.booked_properties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="booking_details" EntityType="Self.booking_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customers_status" EntityType="Self.customers_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="properties" EntityType="Self.properties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="property_images" EntityType="Self.property_images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sellers" EntityType="Self.sellers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sellers_status" EntityType="Self.sellers_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_booking_details_customers" Association="Self.FK_booking_details_customers">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="booking_details" EntitySet="booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_details_properties" Association="Self.FK_booking_details_properties">
+      <End Role="properties" EntitySet="properties" />
+      <End Role="booking_details" EntitySet="booking_details" />
+    </AssociationSet>
+    <AssociationSet Name="Property_seller" Association="Self.Property_seller">
+      <End Role="sellers" EntitySet="sellers" />
+      <End Role="properties" EntitySet="properties" />
+    </AssociationSet>
+    <AssociationSet Name="property-property_images" Association="Self.property-property_images">
+      <End Role="properties" EntitySet="properties" />
+      <End Role="property_images" EntitySet="property_images" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

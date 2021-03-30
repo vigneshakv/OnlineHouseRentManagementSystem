@@ -1,0 +1,50 @@
+﻿@model OnlineHouseRentManagementSystem.Models.booking_details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>booking_details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.booking_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.booking_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.customer_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.customer_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.property.property_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.property.property_type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.si_no }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

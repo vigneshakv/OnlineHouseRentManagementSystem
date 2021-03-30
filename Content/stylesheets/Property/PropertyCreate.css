@@ -1,0 +1,68 @@
+﻿.main{
+    margin-top:16px;
+    border:1px solid #007bff;
+    padding:0px;
+    border-radius:4px;
+    background-color:white;
+}
+#D2,#D3,#D4 {
+    display:none;
+}
+#b1:focus, #b2:focus, #b3:focus, #b4:focus {
+    background: #e6f5ff;
+    color: #007bff;
+}
+#b1:hover, #b2:hover, #b3:hover, #b4:hover {
+    background: #e6f5ff;
+    color: #007bff;
+}
+.header{
+    padding:16px;
+    text-align:center;
+    background:#007bff;
+    color:white;
+}
+.c1{
+    padding:20px;
+}
+.content{
+    padding:16px;
+}
+.content .container{
+    margin:16px auto;
+}
+.input-group > .form-control,.form-control-plaintext,.custom-select,.custom-file {
+    margin: auto;
+    border-color:#007bff;
+}
+.form-control {
+    border-color: #007bff;
+}
+#property_address {
+    border-color: #007bff;
+}
+
+.content .butg{
+    text-align:center;
+}
+.click {
+    background-color: white;
+    color: rgb(7, 156, 242);
+}
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../images/Homebg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+.s{
+    padding:3px;
+    margin:auto;
+}
+.carousel-inner {
+    background: rgb(42, 39, 39);
+}
+img{
+    margin:auto;
+}
+.emp {
+    border-color: red !important;
+}
