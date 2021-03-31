@@ -121,7 +121,6 @@ F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\bin\System.Web.WebPages.xml
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\bin\System.Web.WebPages.Deployment.xml
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\bin\System.Web.WebPages.Razor.xml
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\bin\Antlr3.Runtime.pdb
-F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.csprojAssemblyReference.cache
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.csproj.CoreCompileInputs.cache
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.csproj.CopyComplete
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.dll
