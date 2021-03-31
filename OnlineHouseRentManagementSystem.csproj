@@ -1533,6 +1533,7 @@
     <Content Include="Content\stylesheets\Property\Index.css" />
     <Content Include="Content\stylesheets\Property\PropertyCreate.css" />
     <Content Include="Content\stylesheets\Property\PropertyDetails.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\HouseRentManagementModel.Context.tt">
@@ -1545,35 +1546,6 @@
       <DependentUpon>HouseRentManagementModel.edmx</DependentUpon>
       <LastGenOutput>HouseRentManagementModel.cs</LastGenOutput>
     </Content>
-    <Content Include="screenshots\ChangePassword.jpg" />
-    <Content Include="screenshots\CreatingUserWithRole.jpg" />
-    <Content Include="screenshots\CustomerHome.jpg" />
-    <Content Include="screenshots\CustomerProfile.jpg" />
-    <Content Include="screenshots\CustomerPropertyView.jpg" />
-    <Content Include="screenshots\CustomerRequestedAndBookedStatus.jpg" />
-    <Content Include="screenshots\CustomerSignUp.jpg" />
-    <Content Include="screenshots\CustomerViewPropDetails.jpg" />
-    <Content Include="screenshots\CustomerViewPropDetails_2.jpg" />
-    <Content Include="screenshots\CustomerViewSellerContactDetails.jpg" />
-    <Content Include="screenshots\DisclimarForSellerDuringBook.jpg" />
-    <Content Include="screenshots\ForgotPassword.jpg" />
-    <Content Include="screenshots\ForgotPassword_2.jpg" />
-    <Content Include="screenshots\SellerBookTheHouseForCustomer.jpg" />
-    <Content Include="screenshots\SellerEditingProperty.jpg" />
-    <Content Include="screenshots\SellerHomePage.jpg" />
-    <Content Include="screenshots\SellerPostingProperty.jpg" />
-    <Content Include="screenshots\SellerPostingProperty_2.jpg" />
-    <Content Include="screenshots\SellerPostingProperty_3.jpg" />
-    <Content Include="screenshots\SellerPostingProperty_4_1.jpg" />
-    <Content Include="screenshots\SellerPostingProperty_4_2.jpg" />
-    <Content Include="screenshots\SellerPropertyDeletion.jpg" />
-    <Content Include="screenshots\SellerResponseToCustomer.jpg" />
-    <Content Include="screenshots\SellerShortlistedCustomerForBook.jpg" />
-    <Content Include="screenshots\SellerSignUp.jpg" />
-    <Content Include="screenshots\SellerViewingPostedProperties.jpg" />
-    <Content Include="screenshots\SellerViewingRequests.jpg" />
-    <Content Include="screenshots\TopSellers.jpg" />
-    <Content Include="screenshots\UserLogin.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
