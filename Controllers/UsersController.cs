@@ -221,9 +221,9 @@ namespace OnlineHouseRentManagementSystem.Controllers
                     return View("~/Views/Home/SignupLogin.cshtml");
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                return Content(e.Message);
+               // return Content(e.Message);
                 return RedirectToAction("Index","Home");
             }
         }

@@ -175,9 +175,9 @@ namespace OnlineHouseRentManagementSystem.Controllers
                 return RedirectToAction("Index");
                 
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                return Content(e.Message);
+               // return Content(e.Message);
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -200,9 +200,9 @@ namespace OnlineHouseRentManagementSystem.Controllers
                 ViewBag.seller_id = new SelectList(db.sellers, "seller_id", "seller_name", property.seller_id);
                 return View(property);
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                return Content(e.Message);
+                //return Content(e.Message);
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -258,9 +258,9 @@ namespace OnlineHouseRentManagementSystem.Controllers
                 return RedirectToAction("Index");
             }
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                return Content(e.Message);
+                //return Content(e.Message);
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.seller_id = new SelectList(db.sellers, "seller_id", "seller_name", property.seller_id);

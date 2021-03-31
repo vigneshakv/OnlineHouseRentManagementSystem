@@ -183,19 +183,19 @@ namespace OnlineHouseRentManagementSystem.Controllers
                 {
                     booking_details booking_Details = db.booking_details.Find(si_no);
                     int flag = 0;
-                    var actions = "";
+                   // var actions = "";
                     if (op == 1 && booking_Details.booking_status != "accepted")
                     {
                         booking_Details.booking_status = "accepted";
                         flag = 1;
-                        actions = "accepted";
+                       // actions = "accepted";
                         
                     }
                     else if(op == 0 && booking_Details.booking_status != "rejected")
                     {
                         booking_Details.booking_status = "rejected";
                         flag = 1;
-                        actions = "rejected";
+                        //actions = "rejected";
                     }
                     if (flag == 1)
                     {
@@ -338,9 +338,9 @@ namespace OnlineHouseRentManagementSystem.Controllers
                 }
                 return RedirectToAction("Index", "Home");
             }
-            catch(Exception e)
+            catch(Exception)
             {
-                return Content(e.Message);
+               // return Content(e.Message);
                 return RedirectToAction("Index", "Home");
             }
         }
