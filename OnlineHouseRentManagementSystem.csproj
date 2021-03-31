@@ -1533,7 +1533,6 @@
     <Content Include="Content\stylesheets\Property\Index.css" />
     <Content Include="Content\stylesheets\Property\PropertyCreate.css" />
     <Content Include="Content\stylesheets\Property\PropertyDetails.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\HouseRentManagementModel.Context.tt">
