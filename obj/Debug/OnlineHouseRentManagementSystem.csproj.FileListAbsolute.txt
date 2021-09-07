@@ -125,3 +125,4 @@ F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentMa
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.csproj.CopyComplete
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.dll
 F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.pdb
+F:\ProjectInCloudGit\OnlineHouseRentManagementSystem\obj\Debug\OnlineHouseRentManagementSystem.csproj.AssemblyReference.cache
